@@ -56,29 +56,29 @@ class Queue:
         
         return self.firstNode.customerDetails
       
-      
-      ticketSystem = Queue()
+
+ticketSystem = Queue()
 
 
 ticketNo = 1000
 
 
 while True:
-    print("\n\nWelcome to the RBA Ticket Booking System. You will be served soon.\n")
-    print("\nFor Customer: Press 1 to queue.\n")
-    print("For Customer Care Consultant: Press 2 to serve the next customer.\n")
-    print("For Customer Care Consultant: Press 3 to get the list of customers in the waiting queue.\n")
+    st.write('Welcome to the RBA Ticket Booking System. You will be served soon.')
+    st.write('For Customer: Press 1 to queue.')
+    st.write('For Customer Care Consultant: Press 2 to serve the next customer.')
+    st.write('For Customer Care Consultant: Press 3 to get the list of customers in the waiting queue.')
 
-    print("Press x to end the system. ")
+    st.write('Press x to end the system. ')
     step = input("\nPlease enter the number.\n\n")
     if step.lower() == 'x':
-        print("Thank you for using our service. ")
+        st.write('Thank you for using our service. ')
         break
     try:
         step = int(step)
 
         if step!= 1 and step!=2 and step!=3:
-            print("\nYou have entered an undefined number\n")
+            st.write('\nYou have entered an undefined numb')
 
 
         elif step==1:
