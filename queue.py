@@ -64,47 +64,47 @@ ticketNo = 1000
 
 
 while True:
-    st.write('Welcome to the RBA Ticket Booking System. You will be served soon.')
-    st.write('For Customer: Press 1 to queue.')
-    st.write('For Customer Care Consultant: Press 2 to serve the next customer.')
-    st.write('For Customer Care Consultant: Press 3 to get the list of customers in the waiting queue.')
+    st.write("Welcome to the RBA Ticket Booking System. You will be served soon.")
+    st.write("For Customer: Press 1 to queue.")
+    st.write("For Customer Care Consultant: Press 2 to serve the next customer.")
+    st.write("For Customer Care Consultant: Press 3 to get the list of customers in the waiting queue.")
 
-    st.write('Press x to end the system. ')
-    step = input("\nPlease enter the number.\n\n")
+    st.write("Press x to end the system. ")
+    step = st.text_input("\nPlease enter the number.\n\n")
     if step.lower() == 'x':
-        st.write('Thank you for using our service. ')
+        st.write("Thank you for using our service. ")
         break
     try:
         step = int(step)
 
         if step!= 1 and step!=2 and step!=3:
-            st.write('\nYou have entered an undefined numb')
+            st.write("\nYou have entered an undefined numb")
 
 
         elif step==1:
           
             
-            customerName = input("\nPlease enter your name.\n\n")
+            customerName = st.text_input("\nPlease enter your name.\n\n")
             ticketNo = ticketNo + 1
             ticketSystem.enqueue(customerName, ticketNo)
             waitingTime = 2*ticketSystem.size
 
-            print("\nDear {}. Your ticket no is {}.".format(customerName,ticketNo))
-            print("Your estimated waiting time is {} minutes.\n\n".format(waitingTime))
+            st.write("\nDear {}. Your ticket no is {}.".format(customerName,ticketNo))
+            st.write("Your estimated waiting time is {} minutes.\n\n".format(waitingTime))
 
         elif step==2:
-            counterNo = input("\nPlease enter your counterNo.\n\n")
+            counterNo = st.text_input("\nPlease enter your counterNo.\n\n")
 
             if ticketSystem.size >0:
-                print("No # {} , counter {}".format(ticketSystem.getFirstElement()[1],counterNo))
+                st.write("No # {} , counter {}".format(ticketSystem.getFirstElement()[1],counterNo))
 
                 ticketSystem.dequeue()
             else:
-                print("No one in the queue now.")
+                st.write("No one in the queue now.")
         
         else:
             ticketSystem.traverse()
          
     
     except ValueError:
-        print("\nPlease enter a number.\n\n")
+        st.write("\nPlease enter a number.\n\n")
